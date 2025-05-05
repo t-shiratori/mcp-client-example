@@ -1,0 +1,36 @@
+{
+  "name": "mcp-client-example",
+  "version": "1.0.0",
+  "description": "mcp client and server example",
+  "type": "module",
+  "main": "index.js",
+  "engines": {
+    "node": "22.15.0"
+  },
+  "scripts": {
+    "build": "pnpm rimraf && tsc && chmod 755 build/index.js",
+    "start": "node build/index.js",
+    "format": "pnpm biome format --write ./src",
+    "inspect": "pnpm dlx @modelcontextprotocol/inspector node build/index.js",
+    "rimraf": "node -e 'fs.rmSync(`build`, {recursive:true, force:true})'"
+
+  },
+  "files": [
+    "build"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.10.0",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.40.1",
+    "@modelcontextprotocol/sdk": "^1.11.0",
+    "dotenv": "^16.5.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/node": "^22.15.3",
+    "typescript": "^5.8.3",
+    "zod": "^3.24.3"
+  }
+}
