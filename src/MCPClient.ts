@@ -81,7 +81,7 @@ export class MCPClient {
 
             while (true) {
                 /** Accept input from user */
-                const inputMessage = await rl.question("\nQuery: ");
+                const inputMessage = await rl.question("\n🖌 Query: ");
                 if (inputMessage.toLowerCase() === "quit") {
                     break;
                 }
@@ -121,8 +121,8 @@ export class MCPClient {
             tools: this.tools,
         });
 
-        console.log("---------------------------------------------------");
-        console.log("First Query AI response: ", response);
+        // console.log("---------------------------------------------------");
+        // console.log("First Query AI response: ", response);
 
         /** Collect final output message */
         const finalText = [];
@@ -165,10 +165,10 @@ export class MCPClient {
                     messages: queryMessages,
                 });
 
-                console.log(
-                    "---------------------------------------------------",
-                );
-                console.log("AI response with MCP Server Tools: ", response);
+                // console.log(
+                //     "---------------------------------------------------",
+                // );
+                // console.log("AI response with MCP Server Tools: ", response);
 
                 /** 最新の会話メッセージだけ最終的な出力結果に追加する */
                 finalText.push(
@@ -179,8 +179,8 @@ export class MCPClient {
             }
         }
 
-        console.log("---------------------------------------------------");
-        console.log({ finalText });
+        // console.log("---------------------------------------------------");
+        // console.log({ finalText });
 
         return finalText.join("\n");
     }
