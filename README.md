@@ -32,6 +32,10 @@ pnpm start
 ```
 
 ### Output example
+
+Use this mcp server
+https://github.com/t-shiratori/time-tools-mcp-server
+
 ```shell-session
 
 mcp-client-example $ pnpm start
