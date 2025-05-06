@@ -31,13 +31,29 @@ export class MCPClient {
         });
     }
 
+    createCommand(serverScriptPath: string) {
+        const isJs = serverScriptPath.endsWith(".js");
+        const isPy = serverScriptPath.endsWith(".py");
+        if (!isJs && !isPy) {
+            throw new Error("Server script must be a .js or .py file");
+        }
+        const command = isPy
+            ? process.platform === "win32"
+                ? "python"
+                : "python3"
+            : process.execPath;
+
+        return command;
+    }
+
     async connectToServer() {
         try {
             if (!MCP_SERVER_SCRIPT_PATH) {
                 throw new Error("MCP_SERVER_SCRIPT_PATH is not set");
             }
+
             this.transport = new StdioClientTransport({
-                command: "node",
+                command: this.createCommand(MCP_SERVER_SCRIPT_PATH),
                 args: [MCP_SERVER_SCRIPT_PATH],
             });
 
