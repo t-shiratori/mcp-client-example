@@ -1,7 +1,7 @@
 {
   "name": "mcp-client-example",
   "version": "1.0.0",
-  "description": "mcp client and server example",
+  "description": "Mcp client example",
   "type": "module",
   "main": "index.js",
   "engines": {
@@ -13,7 +13,6 @@
     "format": "pnpm biome format --write ./src",
     "inspect": "pnpm dlx @modelcontextprotocol/inspector node build/index.js",
     "rimraf": "node -e 'fs.rmSync(`build`, {recursive:true, force:true})'"
-
   },
   "files": [
     "build"
@@ -30,7 +29,6 @@
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@types/node": "^22.15.3",
-    "typescript": "^5.8.3",
-    "zod": "^3.24.3"
+    "typescript": "^5.8.3"
   }
 }
