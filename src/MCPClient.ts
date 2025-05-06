@@ -31,6 +31,7 @@ export class MCPClient {
         });
     }
 
+    /** Create command to run the MCP server */
     createCommand(serverScriptPath: string) {
         const isJs = serverScriptPath.endsWith(".js");
         const isPy = serverScriptPath.endsWith(".py");
@@ -46,6 +47,7 @@ export class MCPClient {
         return command;
     }
 
+    /** Connect to the MCP server */
     async connectToServer() {
         try {
             if (!MCP_SERVER_SCRIPT_PATH) {
@@ -80,6 +82,7 @@ export class MCPClient {
         }
     }
 
+    /** Close the connection to the MCP server */
     async cleanup() {
         await this.mpcClient.close();
     }
@@ -88,6 +91,7 @@ export class MCPClient {
      * Creating an interactive user interface with the CLI
      */
     async chatLoop() {
+        /** Create a readline interface for user input */
         const rl = readline.createInterface({
             input: process.stdin,
             output: process.stdout,
@@ -188,7 +192,7 @@ export class MCPClient {
                 // );
                 // console.log("AI response with MCP Server Tools: ", response);
 
-                /** 最新の会話メッセージだけ最終的な出力結果に追加する */
+                /** Only the latest conversational messages are added to the final output result */
                 finalText.push(
                     response.content[0].type === "text"
                         ? response.content[0].text
