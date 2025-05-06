@@ -121,7 +121,6 @@ export class MCPClient {
 
     /**
      * Manage conversations for each question.
-    
      */
     async processQuery(query: string) {
         /** For collecting input messages */
