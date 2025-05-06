@@ -11,7 +11,7 @@ Anthropic API:
 
 System Configuration Chart
 
-<img src="https://github.com/user-attachments/assets/54f1a1bf-36d2-4407-aac7-209586845358" width="600" >
+<img src="https://github.com/user-attachments/assets/8682e5c8-d0af-4800-ab85-a731d29dfc80" width="600" >
 
 ## Setup
 
