@@ -52,11 +52,13 @@ export class MCPClient {
                 throw new Error("MCP_SERVER_SCRIPT_PATH is not set");
             }
 
+            /** Create a transport to communicate with the MCP server */
             this.transport = new StdioClientTransport({
                 command: this.createCommand(MCP_SERVER_SCRIPT_PATH),
                 args: [MCP_SERVER_SCRIPT_PATH],
             });
 
+            /** Connect to the MCP server */
             this.mpcClient.connect(this.transport);
 
             /** Get mcp server tools */
