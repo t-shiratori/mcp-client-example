@@ -9,9 +9,40 @@ Anthropic API:
 [Initial setup - Anthropic](https://docs.anthropic.com/en/docs/initial-setup)
 [Messages - Anthropic](https://docs.anthropic.com/en/api/messages)
 
-System Configuration Chart
+System
 
 <img src="https://github.com/user-attachments/assets/8682e5c8-d0af-4800-ab85-a731d29dfc80" width="600" >
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant MCPClient
+    participant AnthropicAPI
+    participant MCPServer
+
+    User->>MCPClient: Run
+    MCPClient->>MCPServer: Connect and get tool info
+    MCPServer-->>MCPClient: Tool info
+
+    loop Chat loop (until 'quit' is entered)
+        User->>MCPClient: Enter query
+        MCPClient->>AnthropicAPI: Send query
+        AnthropicAPI-->>MCPClient: AI response
+
+        alt When tool usage is required
+            MCPClient->>MCPServer: Call tool
+            MCPServer-->>MCPClient: Tool execution result
+            MCPClient->>AnthropicAPI: Send query again including tool result
+            AnthropicAPI-->>MCPClient: Final response
+        end
+
+        MCPClient-->>User: Display response
+    end
+
+    User->>MCPClient: Enter 'quit'
+    MCPClient->>MCPServer: Disconnect
+    MCPClient-->>User: Exit
+```
 
 ## Setup
 
