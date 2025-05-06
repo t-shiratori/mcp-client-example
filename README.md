@@ -9,9 +9,12 @@ Anthropic API:
 [Initial setup - Anthropic](https://docs.anthropic.com/en/docs/initial-setup)
 [Messages - Anthropic](https://docs.anthropic.com/en/api/messages)
 
-System
+<b>System diagram</b>
 
 <img src="https://github.com/user-attachments/assets/8682e5c8-d0af-4800-ab85-a731d29dfc80" width="600" >
+
+
+<b>Sequence diagram</b>
 
 ```mermaid
 sequenceDiagram
