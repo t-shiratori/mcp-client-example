@@ -202,7 +202,7 @@ export class MCPClient {
         }
 
         // console.log("---------------------------------------------------");
-        // console.log({ finalText });
+        // console.log({ queryMessages, finalText });
 
         return finalText.join("\n");
     }
