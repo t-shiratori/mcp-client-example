@@ -32,7 +32,7 @@ pnpm start
 ```
 
 ### Output example
-```txt
+```shell-session
 
 mcp-client-example $ pnpm start
 
