@@ -150,12 +150,7 @@ export class MCPClient {
         const finalText = [];
 
         /**
-         * AI processes AI-generated conversational messages.
-         * - If it is just a message
-         *   - returns text and that's it
-         * - For messages using tools
-         *   - Run the tools on the MCP server to get the results
-         *   - Add the result to the message and request the API again
+         * Analyze the "content" property of the response
          */
         for (const content of response.content) {
             if (content.type === "text") {
@@ -176,11 +171,13 @@ export class MCPClient {
                     `[Calling tool ${toolName} with args ${JSON.stringify(toolArgs)}]`,
                 );
 
+                /** Update query message */
                 queryMessages.push({
                     role: "user",
                     content: result.content as string,
                 });
 
+                /** Send the request to the API again */
                 const response = await this.anthropic.messages.create({
                     model: "claude-3-5-sonnet-20241022",
                     max_tokens: 1000,
