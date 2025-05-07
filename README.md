@@ -59,6 +59,12 @@ ANTHROPIC_API_KEY=your-api-key
 MCP_SERVER_SCRIPT_PATH=/path/to/mcp-server.js
 ```
 
+## Build
+
+```bash
+pnpm build
+```
+
 ## Run
 
 ```bash
